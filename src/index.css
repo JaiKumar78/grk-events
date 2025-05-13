@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Outfit:wght@100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Prata&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --font-display: "Satoshi", "sans-serif";
+    --font-playfair: "Playfair", "serif";
+    --font-nunito: "Nunito", "sans-serif";
+    --font-cursive: "Cedarville Cursive", "cursive";
+
+
+    --breakpoint-3xl: 120rem;
+    --color-main: #0A4A4A;
+    --color-mustard: #D6A84B;
+    --color-sandal: #E2A56E;
+    /* ... */
+  }
+
+  @layer utilities {
+    .container {
+      /* @apply max-w-[77.5rem] mx-auto px-5 md:px-10 lg:px-15 xl:max-w-[87.5rem] */
+      @apply max-w-5xl w-full mx-auto px-5 lg:px-15
+   }
+   /* @media (min-width: 480px) {
+    .card:nth-child(7n + 1) {
+      grid-column: span 2 / span 2;
+      grid-row: span 2 / span 2;
+    }
+  } */
+  }
+
+  @layer components{
+    .base-mustard {
+      @apply font-nunito text-sm md:text-[18px] font-medium tracking-wide text-center;
+    }
+
+    .main-statement {
+      @apply font-playfair font-extrabold text-4xl md:text-6xl text-center ;
+    }
+
+    .link-btn {
+      @apply border-2 font-semibold text-sm p-2.5 transition rounded-md
+    }
+  }
+
+
+  /* @media screen and (min-width: 480px) {
+    .event-grid .card:nth-child(7n + 1) {
+      grid-column: auto/span 2;
+      grid-row: auto/span 2;
+    }
+  } */
+/* 
+  .active {
+    @apply text-mustard
+  } */
