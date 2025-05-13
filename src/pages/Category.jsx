@@ -25,8 +25,9 @@ const Category = () => {
           {decodeURIComponent(selection.category).replace(/_/g, ' ').toUpperCase()}
         </p>
   
-        <div className='flex justify-center flex-wrap gap-2 bg-sandal py-2 mt-10 w-full'>
-          {subcategories.map((item, index) => (
+        <div className='bg-sandal py-2  mt-10 w-full'>
+          <div className='md:px-16 lg:px-40 max-w-4/5 mx-auto flex justify-center flex-wrap gap-2'>
+            {subcategories.map((item, index) => (
             <Link
               onClick={() => setCurrentSub(item.name)}
               to={`/services/${selection.category}/${item.name.toLowerCase().replace(/\s+/g, '_')}`}
@@ -38,10 +39,11 @@ const Category = () => {
               {item.name}
             </Link>
           ))}
+          </div>
         </div>
   
         {innerSubs.length > 0 && (
-          <div className='mt-5 mx-auto justify-center flex flex-wrap gap-2'>
+          <div className='mt-5 mx-auto justify-center flex flex-wrap gap-2  md:px-16 lg:px-40 max-w-4/5'>
             {innerSubs.map((item, index) => (
               <Link
                 key={index}
