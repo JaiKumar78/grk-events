@@ -12,10 +12,10 @@ const Category = () => {
   
     useEffect(() => {
       if (subcategories.length > 0 && !currentSub) {
-        setCurrentSub(subcategories[0].name);
+        setCurrentSub(selection.subcategory);
       }
       if (innerSubs.length > 0 && !currInnerSub) {
-        setCurrInnerSub(innerSubs[0]);
+        setCurrInnerSub(selection.innersub);
       }
     }, [subcategories, innerSubs]);
   
@@ -32,8 +32,8 @@ const Category = () => {
               onClick={() => setCurrentSub(item.name)}
               to={`/services/${selection.category}/${item.name.toLowerCase().replace(/\s+/g, '_')}`}
               key={index}
-              className={`cursor-pointer text-xs md:text-sm base-mustard text-white p-3 bg-main rounded-4xl hover:bg-opacity-80 ${
-                currentSub.trim() === item.name.trim() ? 'bg-gray-600 text-white !important' : ''
+              className={`cursor-pointer text-xs md:text-sm base-mustard text-white p-3  rounded-4xl hover:bg-opacity-80 ${
+                currentSub.trim() === item.name.trim() ? 'bg-gray-600' : 'bg-main'
               }`}
             >
               {item.name}
@@ -48,8 +48,8 @@ const Category = () => {
               <Link
                 key={index}
                 onClick={() => setCurrInnerSub(item)}
-                className={`p-2 bg-main text-white rounded-xl text-sm ${
-                    currInnerSub.trim() === item.trim() ? 'bg-gray-600' : ''
+                className={`p-2  text-white rounded-xl text-sm ${
+                    currInnerSub.trim() === item.trim() ? 'bg-gray-600' : 'bg-main'
                 }`}
                 to={`/services/${selection.category}/${currentSub.toLowerCase().replace(/\s+/g, '_')}/${item.toLowerCase().replace(/\s+/g, '_')}`}
               >

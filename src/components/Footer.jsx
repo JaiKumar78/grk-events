@@ -2,6 +2,7 @@ import React from 'react'
 import assets from '../assets/assets'
 
 const phone = import.meta.env.VITE_WHATSAPP_PHONE
+const email = import.meta.env.VITE_EMAIL_ID
 
 const Footer = () => {
   return (
@@ -50,7 +51,8 @@ const Footer = () => {
         {/* Contact Info */}
         <div className="w-full sm:w-auto max-w-md">
           <h2 className="text-[24px] md:text-[28px] font-semibold underline mb-4">Contact</h2>
-          <p className="text-[16px] md:text-[18px] mb-2">+91 99623 96720</p>
+          <p className="text-[16px] md:text-[18px] mb-2">{`+91 ${phone}`}</p>
+          <p className="text-[16px] md:text-[18px] mb-2">{email}</p>
           <p className="text-[16px] md:text-[18px] leading-7">
             4/1, 1st Cross St, near Murugan Temple, <br />
             Lakshmi Nagar, Velachery, Chennai, <br />

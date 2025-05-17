@@ -12,11 +12,7 @@ const EventDetails = () => {
   useEffect(() => {
     const loadEvent = async () => {
       setLoading(true);
-      let event = posts.find((item) => item.id === eventId);
-
-      if (!event) {
-        event = await getPostById(eventId);
-      }
+      let event = await getPostById(eventId);
 
       if (event) {
         setCurrentEvent(event);
@@ -28,6 +24,8 @@ const EventDetails = () => {
 
     if (eventId) loadEvent();
   }, [eventId, posts, setCurrentEvent]);
+
+  const isVideo = (url) => /\.(mp4|webm|ogg)(\?.*)?$/i.test(url);
 
   const formatDate = (timestamp) => {
     const dateObj = new Date(timestamp.seconds * 1000);
@@ -53,23 +51,44 @@ const EventDetails = () => {
 
       {/* Primary Image */}
       {image && (
-        <img
-          src={image}
-          alt={currentEvent.title}
-          className="w-fit mx-auto h-[50vh] md:h-[70vh] object-cover md:object-contain rounded-lg mb-6 border-1 border-gray-400 shadow-lg"
-        />
-      )}
+          isVideo(image) ? (
+            <video
+              src={image}
+              autoPlay
+              muted
+              loop
+              controls
+              className="w-fit mx-auto h-[50vh] md:h-[70vh] object-cover md:object-contain rounded-lg mb-6 border border-gray-400 shadow-lg"
+            />
+          ) : (
+            <img
+              src={image}
+              alt={currentEvent.title}
+              className="w-fit mx-auto h-[50vh] md:h-[70vh] object-cover md:object-contain rounded-lg mb-6 border border-gray-400 shadow-lg"
+            />
+          )
+        )}
 
       {/* All Images Grid */}
       <div className="flex overflow-x-scroll gap-3 mt-10">
         {currentEvent.imageurl?.map((url, idx) => (
-          <img
-            key={idx}
-            src={url}
-            alt={`Image ${idx}`}
-            className="w-full h-60 object-cover rounded-md"
-            onClick={() => setImage(url)}
-          />
+          isVideo(url) ? (
+            <video
+              key={idx}
+              src={url}
+              muted
+              className="w-full h-60 object-cover rounded-md cursor-pointer"
+              onClick={() => setImage(url)}
+            />
+          ) : (
+            <img
+              key={idx}
+              src={url}
+              alt={`Image ${idx}`}
+              className="w-full h-60 object-cover rounded-md cursor-pointer"
+              onClick={() => setImage(url)}
+            />
+          )
         ))}
       </div>
 

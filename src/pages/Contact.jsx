@@ -2,6 +2,7 @@ import { Headset, MessageCircleMore, AtSign } from 'lucide-react';
 import assets from '../assets/assets';
 
 const phone = import.meta.env.VITE_WHATSAPP_PHONE
+const email = import.meta.env.VITE_EMAIL_ID
 
 const Contact = () => {
   return (
@@ -25,21 +26,21 @@ const Contact = () => {
             <Headset />
             <div>
               <p className='base-mustard text-left text-sm'>Helpline</p>
-              <p className='base-mustard text-left text-sm'>{`+91 ${phone}`}</p>
-            </div>
+              <p className='base-mustard text-left text-sm font-extrabold'>{`+91 ${phone}`}</p>
+            </div> 
           </div>
           <div className='flex gap-3 items-stretch bg-white/30 p-3 rounded-lg'>
             <MessageCircleMore />
             <div>
               <p className='base-mustard text-left text-sm'>SMS/Whastsapp</p>
-              <p className='base-mustard text-left text-sm'>{`+91 ${phone}`}</p>
+              <p className='base-mustard text-left text-sm font-extrabold'>{`+91 ${phone}`}</p>
             </div>
           </div>
           <div className='flex gap-3 items-stretch bg-white/30 p-3 rounded-lg'>
             <AtSign />
             <div>
               <p className='base-mustard text-left text-sm'>E-Mail</p>
-              <p className='base-mustard text-left text-sm'>{`+91 ${phone}`}</p>
+              <p className='base-mustard text-left text-sm font-extrabold'>{`${email}`}</p>
             </div>
           </div>
 

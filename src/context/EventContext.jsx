@@ -16,7 +16,6 @@ const EventContextProvider = (props) => {
         subcategory: '',
         innersub: ''
       });
-
     const [categories, setCategories] = useState([])
     const [subcategories, setSubcategories] = useState([]);
     const [innerSubs, setInnerSubs] = useState([]);
@@ -67,7 +66,7 @@ const EventContextProvider = (props) => {
       return prev;
     });
   }, [location]);
-
+  console.log(selection)
       useEffect(() => {
         if (categories.length === 0 || !selection.category) return;
     
