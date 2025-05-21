@@ -36,8 +36,18 @@ import whatsapp from '../assets/whatsapp.png'
 import youtube from '../assets/youtube.png'
 import instagram from '../assets/instagram.png'
 // import logo from '../assets/logo.png'
-import logo from '../assets/logo_edited.PNG'
+import logo from '../assets/logo_edited.png'
 import user from '../assets/user.png'
+import birthday_decor from '../assets/isha.webp'
+import birthday_card_decor from '../assets/lania.webp'
+import seashell from '../assets/seashell.webp'
+import grkstage_decor from '../assets/grkstagedecor.webp'
+import magizh_bday_decor from '../assets/magizh.webp'
+import rakshit_bday_decor from '../assets/rakshit.webp'
+import seyon_bday_decor from '../assets/seyon.webp'
+import ritvik_bday_decor from '../assets/ritvik.webp'
+import threerex from '../assets/threerex.webp'
+import google_icon from '../assets/google_icon.png'
 
 const assets = {
     decorationicon,
@@ -78,7 +88,17 @@ const assets = {
     instagram,
     youtube,
     logo,
-    user
+    user,
+    birthday_decor,
+    birthday_card_decor,
+    seashell,
+    grkstage_decor,
+    magizh_bday_decor,
+    rakshit_bday_decor,
+    seyon_bday_decor,
+    ritvik_bday_decor,
+    threerex,
+    google_icon
 }
 
 export default assets;

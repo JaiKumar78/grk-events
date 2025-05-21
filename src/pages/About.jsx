@@ -5,8 +5,8 @@ import TestimonialSlider from '../components/TestimonialSlider';
 
 const stats = [
   { value: '+12', label: 'Years of Experience' },
-  { value: '+150', label: 'Events Delivered' },
-  { value: '+100', label: 'Happy Clients' },
+  { value: '+1000', label: 'Events Delivered' },
+  { value: '99%', label: 'Happy Clients' },
   { value: '+10k', label: 'Moments Captured' },
 ];
 
@@ -37,7 +37,7 @@ const About = () => {
           </div>
           <div className="flex gap-3">
             <img
-              src={assets.stagedecorations3}
+              src={assets.threerex}
               alt=""
               className="max-w-[12rem] sm:max-w-72 max-h-32 sm:max-h-36 rounded-lg border-2 border-main"
             />
@@ -85,15 +85,27 @@ const About = () => {
         <div className='w-full flex flex-wrap mt-5 items-center'>
           <TestimonialSlider />
         </div>
+        {/* <div>
+          <a href="" target='_blank' className='link-btn fle'>
+              <img src={assets.google_icon} alt="" />
+              Reviews
+          </a>
+        </div> */}
+        <div className='mt-10 w-fit mx-auto'>
+          <a href="https://www.google.com/search?sca_esv=340a42e2eabdb65d&rlz=1C1RXQR_enIN1050IN1050&sxsrf=AHTn8zr1C2k8tnuUlywkdKqzUWQoN6k_JQ:1747819681921&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzZke5W4L0mC0FEHSWkKfkaj2myvbbfEMxQsKIZVCe5ncRJ8vTiAtIMS6IRS7qg6AFMdI7M7ZC7NLRVfR01ZPLvP9-02_&q=GRK+Events+Reviews&sa=X&ved=2ahUKEwjn05ban7SNAxVNcGwGHclmI0UQ0bkNegQIJhAD&biw=1920&bih=911&dpr=1" target="_blank" rel="noopener noreferrer" className="link-btn w-fit flex items-center gap-2">
+            <img src={assets.google_icon} alt="Google Icon" className="w-5 h-5" />
+            Reviews
+          </a>
+        </div>
       </div>
 
       <div className='flex flex-col gap-7 items-center px-6 py-10 md:px-16 lg:px-40 max-w-4/5 mx-auto'>
         <p className='font-cursive base-mustard text-2xl md:text-3xl'>Every story shared here inspires us to create even more magical moments. Your memories are not just events to us — they are milestones we are honored to be part of.</p>
-        <a 
-            href='/contact'
+        <Link 
+            to='/contact'
             onClick={() =>setActivePage('/contact')}
             className='link-btn w-fit text-white bg-mustard hover:text-mustard hover:bg-transparent hover:border-mustard inline-block'
-          >CONTACT US</a>
+          >CONTACT US</Link>
       </div>
     </>
   )

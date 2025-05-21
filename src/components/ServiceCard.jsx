@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { EventContext } from '../context/EventContext';
@@ -12,14 +12,26 @@ const ServiceCard = ({
     description,
     link }) => {
     const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+    const navigate = useNavigate();
     const {setActivePage } = useContext(EventContext)
+
+    const handleClick = () => {
+      setActivePage('/services'); // Your state handler
+      navigate(`/services/${link}`); // Navigate to the route
+    };
+
   return (
     <motion.div
     ref={ref}
     initial={{ opacity: 0, y: 50 }}
     animate={inView ? { opacity: 1, y: 0 } : {}}
     transition={{ duration: 0.6, ease: "easeOut" }}
+    whileHover={{
+      scale: 1.05,
+      transition: { duration: 0.3, ease: "easeInOut" } // For hover effect
+    }}
     className="relative w-[286.8px] h-[425px] mx-auto"
+    onClick={handleClick}
     >
       {/* Top background image */}
       <div
@@ -43,7 +55,7 @@ const ServiceCard = ({
         </p>
 
         {/* Explore CTA */}
-        <Link to={`/services/${link}`} onClick={() => setActivePage('/services')} className="text-[12px] text-center text-main font-nunito">
+        <Link to={`/services/${link}`} onClick={() => setActivePage('/services')} className="text-sm hover:font-bold text-center text-main font-nunito">
           EXPLORE
         </Link>
       </div>

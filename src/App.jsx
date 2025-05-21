@@ -5,6 +5,7 @@ import pages from './pages/pages'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import WhatsAppButton from './components/WhatsAppButton'
+import ScrollToTop from "./components/ScrollToTop"
 import { EventContext } from "./context/EventContext"
 
 
@@ -27,6 +28,7 @@ const App = () => {
 
   return (
     <div>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<pages.Home />} />

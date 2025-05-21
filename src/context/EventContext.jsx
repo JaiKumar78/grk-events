@@ -46,7 +46,6 @@ const EventContextProvider = (props) => {
       };
       fetchPosts();
     }, [selection]);
-    console.log(posts)
 
   useEffect(() => {
     const pathSegments = location.pathname.split('/').filter(Boolean);
@@ -66,7 +65,6 @@ const EventContextProvider = (props) => {
       return prev;
     });
   }, [location]);
-  console.log(selection)
       useEffect(() => {
         if (categories.length === 0 || !selection.category) return;
     

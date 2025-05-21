@@ -49,56 +49,65 @@ const EventDetails = () => {
           <p className='text-sm text-gray-500 mt-1'>{formatDate(currentEvent.date)}</p>
       <p className="text-lg font-semibold text-main mb-6 mt-3">₹{currentEvent.price}</p>
 
-      {/* Primary Image */}
-      {image && (
-          isVideo(image) ? (
-            <video
-              src={image}
-              autoPlay
-              muted
-              loop
-              controls
-              className="w-fit mx-auto h-[50vh] md:h-[70vh] object-cover md:object-contain rounded-lg mb-6 border border-gray-400 shadow-lg"
-            />
-          ) : (
-            <img
-              src={image}
-              alt={currentEvent.title}
-              className="w-fit mx-auto h-[50vh] md:h-[70vh] object-cover md:object-contain rounded-lg mb-6 border border-gray-400 shadow-lg"
-            />
-          )
-        )}
 
-      {/* All Images Grid */}
-      <div className="flex overflow-x-scroll gap-3 mt-10">
-        {currentEvent.imageurl?.map((url, idx) => (
-          isVideo(url) ? (
-            <video
-              key={idx}
-              src={url}
-              muted
-              className="w-full h-60 object-cover rounded-md cursor-pointer"
-              onClick={() => setImage(url)}
-            />
-          ) : (
-            <img
-              key={idx}
-              src={url}
-              alt={`Image ${idx}`}
-              className="w-full h-60 object-cover rounded-md cursor-pointer"
-              onClick={() => setImage(url)}
-            />
-          )
-        ))}
+      <div className="flex flex-col lg:flex-row items-start gap-10">
+        <div className="w-full lg:w-1/2">
+          {/* Primary Image */}
+          {image && (
+              isVideo(image) ? (
+                <video
+                  src={image}
+                  autoPlay
+                  muted
+                  loop
+                  controls
+                  className="w-fit mx-auto h-[50vh]  object-contain rounded-lg mb-6 border border-gray-400 shadow-lg"
+                />
+              ) : (
+                <img
+                  src={image}
+                  alt={currentEvent.title}
+                  className="w-fit mx-auto h-[50vh]  object-contain rounded-lg mb-6 border border-gray-400 shadow-lg"
+                />
+              )
+            )}
+
+          {/* All Images Grid */}
+          <div className="flex overflow-x-scroll no-scrollbar gap-1 mt-5 justify-center">
+            {currentEvent.imageurl?.map((url, idx) => (
+              isVideo(url) ? (
+                <video
+                  key={idx}
+                  src={url}
+                  muted
+                  className="w-fit h-30  object-cover rounded-md cursor-pointer"
+                  onClick={() => setImage(url)}
+                />
+              ) : (
+                <img
+                  key={idx}
+                  src={url}
+                  alt={`Image ${idx}`}
+                  className="w-fit h-30 object-cover rounded-md cursor-pointer"
+                  onClick={() => setImage(url)}
+                />
+              )
+            ))}
+          </div>
+        </div>
+        <div className="w-full lg:w-1/2">
+          {/* Description */}
+          <h2 className="text-xl font-semibold mb-2 mt-10">Included Features</h2>
+          <ul className="list-disc list-inside text-gray-700">
+            {currentEvent.description?.map((line, idx) => (
+              <li key={idx}>{line}</li>
+            ))}
+          </ul>
+        </div>
       </div>
+      
 
-      {/* Description */}
-      <h2 className="text-xl font-semibold mb-2 mt-10">Included Features</h2>
-      <ul className="list-disc list-inside text-gray-700">
-        {currentEvent.description?.map((line, idx) => (
-          <li key={idx}>{line}</li>
-        ))}
-      </ul>
+      
     </div>
   );
 };

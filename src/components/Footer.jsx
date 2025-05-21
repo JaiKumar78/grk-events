@@ -1,10 +1,13 @@
-import React from 'react'
+import { useContext  } from 'react'
+import { Link } from 'react-router-dom'
 import assets from '../assets/assets'
+import { EventContext } from '../context/EventContext'
 
 const phone = import.meta.env.VITE_WHATSAPP_PHONE
 const email = import.meta.env.VITE_EMAIL_ID
 
 const Footer = () => {
+  const { setActivePage } = useContext(EventContext)
   return (
     <footer className=" w-full border-t border-t-gray-300">
       {/* Top Section */}
@@ -30,10 +33,11 @@ const Footer = () => {
         <div className="w-full sm:w-auto">
           <h2 className="text-[24px] md:text-[28px] font-semibold underline mb-4">Quick Links</h2>
           <ul className="space-y-2 text-[16px] md:text-[18px]">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><Link className='hover:underline underline-offset-2' to="/" onClick={() => setActivePage('/')}>Home</Link></li>
+            <li><Link className='hover:underline underline-offset-2' to="/about" onClick={() => setActivePage('/about')}>About Us</Link></li>
+            <li><Link className='hover:underline underline-offset-2' to="/services" onClick={() => setActivePage('/services')}>Services</Link></li>
+            <li><Link className='hover:underline underline-offset-2' to="/gallery" onClick={() => setActivePage('/gallery')}>Gallery</Link></li>
+            <li><Link className='hover:underline underline-offset-2' to="/contact" onClick={() => setActivePage('/contact')}>Contact</Link></li>
           </ul>
         </div>
 
@@ -45,6 +49,7 @@ const Footer = () => {
             <li>Decorations</li>
             <li>Activities</li>
             <li>Ceremony</li>
+            <li>Activities</li>
           </ul>
         </div>
 

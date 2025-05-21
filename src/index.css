@@ -41,6 +41,8 @@
     .link-btn {
       @apply border-2 font-semibold text-sm p-2.5 transition rounded-md
     }
+
+    
   }
 
 
@@ -54,3 +56,7 @@
   .active {
     @apply text-mustard
   } */
+
+::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }

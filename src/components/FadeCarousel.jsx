@@ -5,11 +5,11 @@ import "slick-carousel/slick/slick-theme.css";
 import assets from "../assets/assets";
 
 const images = [
-    assets.sliderimg1,
-    assets.sliderimg2,
-    assets.sliderimg3,
-    assets.sliderimg4,
-    assets.sliderimg5
+    assets.grkstage_decor,
+    assets.magizh_bday_decor,
+    assets.rakshit_bday_decor,
+    assets.seyon_bday_decor,
+    assets.ritvik_bday_decor
 ];
 
 const FadeCarousel = () => {

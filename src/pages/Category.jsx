@@ -11,13 +11,13 @@ const Category = () => {
     const [currInnerSub, setCurrInnerSub] = useState('');
   
     useEffect(() => {
-      if (subcategories.length > 0 && !currentSub) {
+      if (subcategories.length > 0 && !currentSub && selection.subcategory) {
         setCurrentSub(selection.subcategory);
       }
-      if (innerSubs.length > 0 && !currInnerSub) {
+      if (innerSubs.length > 0 && !currInnerSub && selection.innersub) {
         setCurrInnerSub(selection.innersub);
       }
-    }, [subcategories, innerSubs]);
+    }, [subcategories, innerSubs, selection.subcategory, selection.innersub]);
   
     return (
       <>
@@ -32,7 +32,7 @@ const Category = () => {
               onClick={() => setCurrentSub(item.name)}
               to={`/services/${selection.category}/${item.name.toLowerCase().replace(/\s+/g, '_')}`}
               key={index}
-              className={`cursor-pointer text-xs md:text-sm base-mustard text-white p-3  rounded-4xl hover:bg-opacity-80 ${
+              className={`cursor-pointer text-xs md:text-sm base-mustard text-white p-3 rounded-4xl hover:bg-opacity-80 ${
                 currentSub.trim() === item.name.trim() ? 'bg-gray-600' : 'bg-main'
               }`}
             >
